@@ -26,3 +26,33 @@ button { padding: 10px 20px; margin: 10px; background: #2563eb; color: white; bo
 
 </body>
 </html>
+
+function salveaza() {
+    let nume = document.getElementById("nume").value;
+    let telefon = document.getElementById("telefon").value;
+    let buget = document.getElementById("buget").value;
+
+    let lead = nume + " - " + telefon + " - " + buget;
+
+    let lista = document.getElementById("lista");
+    let li = document.createElement("li");
+
+    // creează text
+    let text = document.createElement("span");
+    text.textContent = lead + " ";
+
+    // creează buton WhatsApp
+    let btn = document.createElement("button");
+    btn.textContent = "WhatsApp";
+
+    let mesaj = "Buna " + nume + "! Te contactez de la CIOBANU Real Estate pentru proprietatea dorita.";
+
+    btn.onclick = function() {
+        window.open("https://wa.me/" + telefon + "?text=" + encodeURIComponent(mesaj));
+    };
+
+    li.appendChild(text);
+    li.appendChild(btn);
+
+    lista.appendChild(li);
+}
